@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../core/constants/app_constants.dart';
 import '../../domain/entities/user_profile.dart';
 import '../models/user_profile_model.dart';
 import '../models/daily_log_model.dart';
