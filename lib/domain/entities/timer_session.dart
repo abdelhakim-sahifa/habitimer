@@ -1,11 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 // Enum for session outcome
-enum SessionOutcome {
-  resisted,
-  relapsed,
-  cancelled,
-}
+enum SessionOutcome { resisted, relapsed, cancelled }
 
 // Timer session entity - records each timer usage
 class TimerSession extends Equatable {
@@ -41,10 +37,10 @@ class TimerSession extends Equatable {
 
   @override
   List<Object?> get props => [
-        startTime,
-        durationSeconds,
-        completed,
-        outcome,
-        notes,
-      ];
+    startTime,
+    durationSeconds,
+    completed,
+    outcome,
+    notes,
+  ];
 }

@@ -50,9 +50,9 @@ class HabitNotifier extends StateNotifier<HabitState> {
   // Load user profile
   Future<void> loadProfile() async {
     state = state.copyWith(isLoading: true);
-    
+
     final result = await _getUserProfile();
-    
+
     result.fold(
       (failure) => state = state.copyWith(
         isLoading: false,
@@ -69,9 +69,9 @@ class HabitNotifier extends StateNotifier<HabitState> {
   // Record a relapse
   Future<void> recordRelapse() async {
     state = state.copyWith(isLoading: true);
-    
+
     final result = await _recordRelapse();
-    
+
     result.fold(
       (failure) => state = state.copyWith(
         isLoading: false,
@@ -88,9 +88,9 @@ class HabitNotifier extends StateNotifier<HabitState> {
   // Record a success
   Future<void> recordSuccess() async {
     state = state.copyWith(isLoading: true);
-    
+
     final result = await _recordSuccess();
-    
+
     result.fold(
       (failure) => state = state.copyWith(
         isLoading: false,
@@ -107,9 +107,9 @@ class HabitNotifier extends StateNotifier<HabitState> {
   // Perform daily reset
   Future<void> performDailyReset() async {
     state = state.copyWith(isLoading: true);
-    
+
     final result = await _performDailyReset();
-    
+
     result.fold(
       (failure) => state = state.copyWith(
         isLoading: false,

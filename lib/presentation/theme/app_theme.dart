@@ -4,12 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 // Material 3 Expressive theme - calm and supportive
 class AppTheme {
   // Material 3 Expressive Color Palette (Calm variant)
-  static const Color primaryColor = Color(0xFF5B9FED); // Softer, more expressive blue
+  static const Color primaryColor = Color(
+    0xFF5B9FED,
+  ); // Softer, more expressive blue
   static const Color secondaryColor = Color(0xFF6BCF7E); // Vibrant gentle green
   static const Color tertiaryColor = Color(0xFFF8B84E); // Warm expressive amber
   static const Color backgroundColor = Color(0xFFFCFCFF); // Cool white
   static const Color surfaceColor = Color(0xFFFFFFFF); // Pure white
-  static const Color surfaceContainerColor = Color(0xFFF4F7FC); // Light container
+  static const Color surfaceContainerColor = Color(
+    0xFFF4F7FC,
+  ); // Light container
   static const Color textPrimaryColor = Color(0xFF1A1C1E); // Near black
   static const Color textSecondaryColor = Color(0xFF5F6368); // Medium gray
   static const Color successColor = Color(0xFF34C759); // iOS-style green
@@ -38,29 +42,29 @@ class AppTheme {
   // Material 3 Expressive Light Theme
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    
+
     // Color Scheme with expressive colors
     colorScheme: ColorScheme.light(
       primary: primaryColor,
       onPrimary: Colors.white,
       primaryContainer: const Color(0xFFD9E9FF),
       onPrimaryContainer: const Color(0xFF001D35),
-      
+
       secondary: secondaryColor,
       onSecondary: Colors.white,
       secondaryContainer: const Color(0xFFD9F7E0),
       onSecondaryContainer: const Color(0xFF002110),
-      
+
       tertiary: tertiaryColor,
       onTertiary: Colors.white,
       tertiaryContainer: const Color(0xFFFFEFD6),
       onTertiaryContainer: const Color(0xFF2A1800),
-      
+
       error: errorColor,
       onError: Colors.white,
       errorContainer: const Color(0xFFFFDAD6),
       onErrorContainer: const Color(0xFF410002),
-      
+
       surface: surfaceColor,
       onSurface: textPrimaryColor,
       surfaceContainerLowest: const Color(0xFFFFFFFF),
@@ -68,13 +72,13 @@ class AppTheme {
       surfaceContainer: const Color(0xFFEEF1F6),
       surfaceContainerHigh: const Color(0xFFE8EBF0),
       surfaceContainerHighest: const Color(0xFFE2E5EA),
-      
+
       outline: const Color(0xFFC4C7CC),
       outlineVariant: const Color(0xFFE1E3E8),
     ),
-    
+
     scaffoldBackgroundColor: backgroundColor,
-    
+
     // Material 3 Expressive Typography with rounded, friendly fonts
     textTheme: GoogleFonts.plusJakartaSansTextTheme().copyWith(
       // Display styles - bold and expressive
@@ -95,7 +99,7 @@ class AppTheme {
         fontWeight: FontWeight.w700,
         color: textPrimaryColor,
       ),
-      
+
       // Headline styles
       headlineLarge: GoogleFonts.plusJakartaSans(
         fontSize: 32,
@@ -112,7 +116,7 @@ class AppTheme {
         fontWeight: FontWeight.w600,
         color: textPrimaryColor,
       ),
-      
+
       // Body styles
       bodyLarge: GoogleFonts.plusJakartaSans(
         fontSize: 16,
@@ -132,7 +136,7 @@ class AppTheme {
         letterSpacing: 0.4,
         color: textSecondaryColor,
       ),
-      
+
       // Label styles
       labelLarge: GoogleFonts.plusJakartaSans(
         fontSize: 14,
@@ -145,7 +149,7 @@ class AppTheme {
         letterSpacing: 0.5,
       ),
     ),
-    
+
     // Material 3 Expressive Buttons - extra rounded and vibrant
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -164,18 +168,19 @@ class AppTheme {
         ),
       ),
     ),
-    
+
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: textPrimaryColor,
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(28),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+        side: BorderSide(
+          color: textSecondaryColor.withValues(alpha: 0.3),
+          width: 1.5,
         ),
-        side: BorderSide(color: textSecondaryColor.withValues(alpha: 0.3), width: 1.5),
       ),
     ),
-    
+
     // Material 3 Expressive Cards - large rounded corners
     cardTheme: CardThemeData(
       color: surfaceColor,
@@ -186,7 +191,7 @@ class AppTheme {
       ),
       clipBehavior: Clip.antiAlias,
     ),
-    
+
     // AppBar with expressive style
     appBarTheme: AppBarTheme(
       backgroundColor: backgroundColor,
@@ -200,13 +205,10 @@ class AppTheme {
       ),
       iconTheme: const IconThemeData(color: textPrimaryColor, size: 24),
     ),
-    
+
     // Icon theme
-    iconTheme: const IconThemeData(
-      color: primaryColor,
-      size: 24,
-    ),
-    
+    iconTheme: const IconThemeData(color: primaryColor, size: 24),
+
     // Floating Action Button
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: primaryColor,
@@ -216,7 +218,7 @@ class AppTheme {
         borderRadius: BorderRadius.circular(24), // Expressive rounded
       ),
     ),
-    
+
     // Divider
     dividerTheme: DividerThemeData(
       color: const Color(0xFFE1E3E8),
@@ -232,4 +234,3 @@ class AppTheme {
     // TODO: Implement Material 3 Expressive dark theme
   );
 }
-

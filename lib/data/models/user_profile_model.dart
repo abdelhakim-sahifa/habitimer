@@ -19,7 +19,9 @@ class UserProfileModel extends UserProfile {
       currentTimerMinutes: json['currentTimerMinutes'] as int? ?? 0,
       goodStreak: json['goodStreak'] as int? ?? 0,
       badStreak: json['badStreak'] as int? ?? 0,
-      lastResetDate: DateTime.parse(json['lastResetDate'] as String? ?? DateTime.now().toIso8601String()),
+      lastResetDate: DateTime.parse(
+        json['lastResetDate'] as String? ?? DateTime.now().toIso8601String(),
+      ),
       totalRelapses: json['totalRelapses'] as int? ?? 0,
       totalSuccesses: json['totalSuccesses'] as int? ?? 0,
     );

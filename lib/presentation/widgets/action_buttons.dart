@@ -23,7 +23,7 @@ class ActionButtons extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 24),
-        
+
         // Success button
         ElevatedButton.icon(
           onPressed: onSuccess,
@@ -35,9 +35,9 @@ class ActionButtons extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20),
           ),
         ).animate().slideX(begin: 0.2, duration: 400.ms),
-        
+
         const SizedBox(height: 16),
-        
+
         // Relapse button
         OutlinedButton.icon(
           onPressed: onRelapse,
@@ -46,7 +46,9 @@ class ActionButtons extends StatelessWidget {
           style: OutlinedButton.styleFrom(
             foregroundColor: AppTheme.textSecondaryColor,
             padding: const EdgeInsets.symmetric(vertical: 20),
-            side: BorderSide(color: AppTheme.textSecondaryColor.withValues(alpha: 0.3)),
+            side: BorderSide(
+              color: AppTheme.textSecondaryColor.withValues(alpha: 0.3),
+            ),
           ),
         ).animate().slideX(begin: -0.2, duration: 400.ms),
       ],

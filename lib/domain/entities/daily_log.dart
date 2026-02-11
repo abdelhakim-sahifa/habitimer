@@ -34,10 +34,10 @@ class DailyLog extends Equatable {
 
   @override
   List<Object?> get props => [
-        date,
-        timerValueAtStart,
-        hadRelapse,
-        timesUsedTimer,
-        timesResisted,
-      ];
+    date,
+    timerValueAtStart,
+    hadRelapse,
+    timesUsedTimer,
+    timesResisted,
+  ];
 }

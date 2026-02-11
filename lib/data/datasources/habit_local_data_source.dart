@@ -36,10 +36,10 @@ class HabitLocalDataSource {
 
     final List<dynamic> jsonList = json.decode(jsonString);
     final logs = jsonList.map((json) => DailyLogModel.fromJson(json)).toList();
-    
+
     // Sort by date descending
     logs.sort((a, b) => b.date.compareTo(a.date));
-    
+
     if (limit != null && logs.length > limit) {
       return logs.sublist(0, limit);
     }
@@ -49,12 +49,12 @@ class HabitLocalDataSource {
   Future<void> saveDailyLog(DailyLogModel log) async {
     final logs = await getDailyLogs();
     logs.insert(0, log);
-    
+
     // Keep only last 90 days
     if (logs.length > 90) {
       logs.removeRange(90, logs.length);
     }
-    
+
     await sharedPreferences.setString(
       'daily_logs',
       json.encode(logs.map((log) => log.toJson()).toList()),
@@ -70,10 +70,10 @@ class HabitLocalDataSource {
     final sessions = jsonList
         .map((json) => TimerSessionModel.fromJson(json))
         .toList();
-    
+
     // Sort by start time descending
     sessions.sort((a, b) => b.startTime.compareTo(a.startTime));
-    
+
     if (limit != null && sessions.length > limit) {
       return sessions.sublist(0, limit);
     }
@@ -83,12 +83,12 @@ class HabitLocalDataSource {
   Future<void> saveTimerSession(TimerSessionModel session) async {
     final sessions = await getTimerSessions();
     sessions.insert(0, session);
-    
+
     // Keep only last 100 sessions
     if (sessions.length > 100) {
       sessions.removeRange(100, sessions.length);
     }
-    
+
     await sharedPreferences.setString(
       'timer_sessions',
       json.encode(sessions.map((session) => session.toJson()).toList()),

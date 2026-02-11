@@ -6,15 +6,11 @@ import 'presentation/pages/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Initialize dependencies
   await initializeDependencies();
-  
-  runApp(
-    const ProviderScope(
-      child: HabitimerApp(),
-    ),
-  );
+
+  runApp(const ProviderScope(child: HabitimerApp()));
 }
 
 class HabitimerApp extends StatelessWidget {

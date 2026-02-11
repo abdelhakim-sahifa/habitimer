@@ -56,12 +56,12 @@ class UserProfile extends Equatable {
 
   @override
   List<Object?> get props => [
-        habitName,
-        currentTimerMinutes,
-        goodStreak,
-        badStreak,
-        lastResetDate,
-        totalRelapses,
-        totalSuccesses,
-      ];
+    habitName,
+    currentTimerMinutes,
+    goodStreak,
+    badStreak,
+    lastResetDate,
+    totalRelapses,
+    totalSuccesses,
+  ];
 }

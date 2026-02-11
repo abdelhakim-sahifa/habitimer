@@ -31,12 +31,13 @@ class HomePage extends ConsumerWidget {
 
                     // Main timer display
                     TimerDisplay(
-                      currentTimerMinutes: habitState.profile.currentTimerMinutes,
+                      currentTimerMinutes:
+                          habitState.profile.currentTimerMinutes,
                       timerState: timerState,
                       onStartTimer: () {
-                        ref.read(timerProvider.notifier).startTimer(
-                              habitState.profile.currentTimerMinutes,
-                            );
+                        ref
+                            .read(timerProvider.notifier)
+                            .startTimer(habitState.profile.currentTimerMinutes);
                       },
                     ).animate().fadeIn(duration: 600.ms).scale(),
                     const SizedBox(height: 40),
@@ -49,20 +50,26 @@ class HomePage extends ConsumerWidget {
                     const SizedBox(height: 40),
 
                     // Statistics card
-                    _buildStatisticsCard(context, habitState)
-                        .animate()
-                        .fadeIn(delay: 400.ms, duration: 600.ms),
+                    _buildStatisticsCard(
+                      context,
+                      habitState,
+                    ).animate().fadeIn(delay: 400.ms, duration: 600.ms),
                     const SizedBox(height: 24),
 
                     // Action buttons (if timer is active and complete)
-                    if (timerState.remainingSeconds == 0 && !timerState.isRunning)
+                    if (timerState.remainingSeconds == 0 &&
+                        !timerState.isRunning)
                       ActionButtons(
                         onRelapse: () async {
-                          await ref.read(habitProvider.notifier).recordRelapse();
+                          await ref
+                              .read(habitProvider.notifier)
+                              .recordRelapse();
                           ref.read(timerProvider.notifier).stopTimer();
                         },
                         onSuccess: () async {
-                          await ref.read(habitProvider.notifier).recordSuccess();
+                          await ref
+                              .read(habitProvider.notifier)
+                              .recordSuccess();
                           ref.read(timerProvider.notifier).stopTimer();
                         },
                       ).animate().fadeIn(delay: 600.ms),
@@ -79,16 +86,9 @@ class HomePage extends ConsumerWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.spa_outlined,
-              color: AppTheme.primaryColor,
-              size: 32,
-            ),
+            Icon(Icons.spa_outlined, color: AppTheme.primaryColor, size: 32),
             const SizedBox(width: 12),
-            Text(
-              'Habitimer',
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
+            Text('Habitimer', style: Theme.of(context).textTheme.headlineLarge),
           ],
         ),
         const SizedBox(height: 8),
@@ -163,17 +163,14 @@ class HomePage extends ConsumerWidget {
         Icon(icon, color: color, size: 20),
         const SizedBox(width: 12),
         Expanded(
-          child: Text(
-            label,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
+          child: Text(label, style: Theme.of(context).textTheme.bodyLarge),
         ),
         Text(
           value,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: color,
-              ),
+            fontWeight: FontWeight.w600,
+            color: color,
+          ),
         ),
       ],
     );

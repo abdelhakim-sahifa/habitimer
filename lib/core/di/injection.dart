@@ -21,9 +21,7 @@ Future<void> initializeDependencies() async {
   );
 
   // Repository
-  sl.registerLazySingleton<HabitRepository>(
-    () => HabitRepositoryImpl(sl()),
-  );
+  sl.registerLazySingleton<HabitRepository>(() => HabitRepositoryImpl(sl()));
 
   // Use cases
   sl.registerLazySingleton(() => GetUserProfile(sl()));

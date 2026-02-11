@@ -63,42 +63,46 @@ class StreakDisplay extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Icon(
-              icon,
-              color: gradient != null ? Colors.white : color,
-              size: 36,
-            ).animate(onPlay: (controller) {
-              if (streak > 0 && gradient != null) {
-                controller.repeat();
-              }
-            }).shimmer(
-              duration: 1500.ms,
-              color: Colors.white.withValues(alpha: 0.5),
-            ),
+            Icon(icon, color: gradient != null ? Colors.white : color, size: 36)
+                .animate(
+                  onPlay: (controller) {
+                    if (streak > 0 && gradient != null) {
+                      controller.repeat();
+                    }
+                  },
+                )
+                .shimmer(
+                  duration: 1500.ms,
+                  color: Colors.white.withValues(alpha: 0.5),
+                ),
             const SizedBox(height: 16),
             Text(
               title,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: gradient != null ? Colors.white.withValues(alpha: 0.95) : null,
-                    fontWeight: FontWeight.w600,
-                  ),
+                color: gradient != null
+                    ? Colors.white.withValues(alpha: 0.95)
+                    : null,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             const SizedBox(height: 12),
             Text(
               '$streak',
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    fontSize: 42,
-                    color: gradient != null ? Colors.white : color,
-                    fontWeight: FontWeight.w800,
-                  ),
+                fontSize: 42,
+                color: gradient != null ? Colors.white : color,
+                fontWeight: FontWeight.w800,
+              ),
             ),
             const SizedBox(height: 4),
             Text(
               streak == 1 ? 'day' : 'days',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: gradient != null ? Colors.white.withValues(alpha: 0.8) : AppTheme.textSecondaryColor,
-                    fontWeight: FontWeight.w500,
-                  ),
+                color: gradient != null
+                    ? Colors.white.withValues(alpha: 0.8)
+                    : AppTheme.textSecondaryColor,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ],
         ),

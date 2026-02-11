@@ -21,7 +21,9 @@ class HabitRepositoryImpl implements HabitRepository {
       final profile = await localDataSource.getUserProfile();
       return Right(profile.toEntity());
     } catch (e) {
-      return Left(StorageFailure('Failed to get user profile: ${e.toString()}'));
+      return Left(
+        StorageFailure('Failed to get user profile: ${e.toString()}'),
+      );
     }
   }
 
@@ -32,7 +34,9 @@ class HabitRepositoryImpl implements HabitRepository {
       await localDataSource.saveUserProfile(model);
       return const Right(null);
     } catch (e) {
-      return Left(StorageFailure('Failed to save user profile: ${e.toString()}'));
+      return Left(
+        StorageFailure('Failed to save user profile: ${e.toString()}'),
+      );
     }
   }
 
@@ -46,7 +50,9 @@ class HabitRepositoryImpl implements HabitRepository {
       await localDataSource.saveUserProfile(updated);
       return const Right(null);
     } catch (e) {
-      return Left(StorageFailure('Failed to update timer value: ${e.toString()}'));
+      return Left(
+        StorageFailure('Failed to update timer value: ${e.toString()}'),
+      );
     }
   }
 
@@ -58,10 +64,7 @@ class HabitRepositoryImpl implements HabitRepository {
     try {
       final profile = await localDataSource.getUserProfile();
       final updated = UserProfileModel.fromEntity(
-        profile.copyWith(
-          goodStreak: goodStreak,
-          badStreak: badStreak,
-        ),
+        profile.copyWith(goodStreak: goodStreak, badStreak: badStreak),
       );
       await localDataSource.saveUserProfile(updated);
       return const Right(null);
@@ -76,7 +79,9 @@ class HabitRepositoryImpl implements HabitRepository {
       // This is handled by the use case
       return const Right(null);
     } catch (e) {
-      return Left(StorageFailure('Failed to perform daily reset: ${e.toString()}'));
+      return Left(
+        StorageFailure('Failed to perform daily reset: ${e.toString()}'),
+      );
     }
   }
 
@@ -122,12 +127,16 @@ class HabitRepositoryImpl implements HabitRepository {
   }
 
   @override
-  Future<Either<Failure,List<TimerSession>>> getTimerSessions({int? limit}) async {
+  Future<Either<Failure, List<TimerSession>>> getTimerSessions({
+    int? limit,
+  }) async {
     try {
       final sessions = await localDataSource.getTimerSessions(limit: limit);
       return Right(sessions.map((session) => session.toEntity()).toList());
     } catch (e) {
-      return Left(StorageFailure('Failed to get timer sessions: ${e.toString()}'));
+      return Left(
+        StorageFailure('Failed to get timer sessions: ${e.toString()}'),
+      );
     }
   }
 
@@ -138,7 +147,9 @@ class HabitRepositoryImpl implements HabitRepository {
       await localDataSource.saveTimerSession(model);
       return const Right(null);
     } catch (e) {
-      return Left(StorageFailure('Failed to save timer session: ${e.toString()}'));
+      return Left(
+        StorageFailure('Failed to save timer session: ${e.toString()}'),
+      );
     }
   }
 

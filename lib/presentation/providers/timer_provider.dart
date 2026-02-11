@@ -59,7 +59,7 @@ class TimerNotifier extends StateNotifier<TimerState> {
   void resumeTimer() {
     if (state.remainingSeconds > 0) {
       state = state.copyWith(isPaused: false, isRunning: true);
-      
+
       _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         if (state.remainingSeconds > 0) {
           state = state.copyWith(remainingSeconds: state.remainingSeconds - 1);

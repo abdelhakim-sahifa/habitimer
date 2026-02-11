@@ -27,9 +27,7 @@ class TimerDisplay extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(36),
         decoration: BoxDecoration(
-          gradient: timerState.isRunning
-              ? AppTheme.primaryGradient
-              : null,
+          gradient: timerState.isRunning ? AppTheme.primaryGradient : null,
           borderRadius: BorderRadius.circular(36),
         ),
         child: Column(
@@ -46,8 +44,7 @@ class TimerDisplay extends StatelessWidget {
             if (!timerState.isRunning && !isTimerZero)
               _buildStartButton(context),
 
-            if (isTimerZero)
-              _buildZeroStateMessage(context),
+            if (isTimerZero) _buildZeroStateMessage(context),
           ],
         ),
       ),
@@ -61,26 +58,30 @@ class TimerDisplay extends StatelessWidget {
     return Column(
       children: [
         Icon(
-          Icons.self_improvement,
-          size: 64,
-          color: Colors.white.withValues(alpha: 0.9),
-        ).animate(onPlay: (controller) => controller.repeat())
-            .shimmer(duration: 2000.ms, color: Colors.white.withValues(alpha: 0.3)),
+              Icons.self_improvement,
+              size: 64,
+              color: Colors.white.withValues(alpha: 0.9),
+            )
+            .animate(onPlay: (controller) => controller.repeat())
+            .shimmer(
+              duration: 2000.ms,
+              color: Colors.white.withValues(alpha: 0.3),
+            ),
         const SizedBox(height: 16),
         Text(
           'Take a breath...',
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Colors.white,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(color: Colors.white),
         ),
         const SizedBox(height: 24),
         Text(
           '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}',
           style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                fontSize: 72,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            fontSize: 72,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(height: 16),
         LinearProgressIndicator(
@@ -109,16 +110,13 @@ class TimerDisplay extends StatelessWidget {
         Text(
           isZero ? '0:00' : '$currentTimerMinutes:00',
           style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                fontSize: 72,
-                color: isZero ? AppTheme.successColor : AppTheme.textPrimaryColor,
-              ),
+            fontSize: 72,
+            color: isZero ? AppTheme.successColor : AppTheme.textPrimaryColor,
+          ),
         ),
         if (!isZero) ...[
           const SizedBox(height: 8),
-          Text(
-            'minutes',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
+          Text('minutes', style: Theme.of(context).textTheme.bodyMedium),
         ],
       ],
     );
@@ -153,9 +151,9 @@ class TimerDisplay extends StatelessWidget {
             child: Text(
               'You\'ve built strong resistance! Keep it up! 💪',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppTheme.successColor,
-                    fontWeight: FontWeight.w600,
-                  ),
+                color: AppTheme.successColor,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],
